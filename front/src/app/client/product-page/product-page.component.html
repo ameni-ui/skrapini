@@ -1,0 +1,129 @@
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y bg">
+  <div class="container">
+    <article class="card">
+      <div class="card-body">
+        <div class="row">
+          <aside class="col-md-6">
+            <article class="gallery-wrap">
+              <div class="card img-big-wrap">
+                <a href="#"> <img [src]="productData.imgUrl" /></a>
+              </div>
+              <!-- card img-big-wrap.// -->
+            </article>
+            <!-- gallery-wrap .end// -->
+          </aside>
+          <main class="col-md-6">
+            <article>
+              <h2>{{ productData.category }}</h2>
+              <h1 class="title">{{ productData.name }}</h1>
+              <div>
+                <ul class="rating-stars">
+                  <li class="stars-active">
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </li>
+                  <li>
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </li>
+                </ul>
+                <span class="label-rating mr-3 text-muted">9.8/10</span>
+                <a href="#" class="btn-link mr-3 text-muted">
+                  <i class="fa fa-heart"></i> Save for later
+                </a>
+                <a href="#" class="btn-link text-muted">
+                  <i class="fa fa-book-open"></i> Compare
+                </a>
+              </div>
+
+              <hr />
+
+              <div class="mb-3">
+                <h3>Description</h3>
+                {{ productData.desc }}
+              </div>
+
+              <div class="mb-3">
+                <var class="price h4">
+                  {{ productData.price | currency: "TND":"DT" }}</var
+                >
+                <br />
+              </div>
+              <!-- price-detail-wrap .// -->
+
+              <div class="mb-4">
+                <a href="#" class="btn btn-primary mr-1">Add to card</a>
+              </div>
+            </article>
+            <!-- product-info-aside .// -->
+          </main>
+          <!-- col.// -->
+        </div>
+        <!-- row.// -->
+      </div>
+      <!-- card-body.// -->
+    </article>
+
+    <article class="card mt-5">
+      <div class="card-body">
+        <div class="row">
+          <table mat-table [dataSource]="scrapedProducts">
+            <ng-container matColumnDef="imgUrl">
+              <th mat-header-cell *matHeaderCellDef>Image</th>
+              <td mat-cell *matCellDef="let scrapedProduct">
+                <img [src]="scrapedProduct.imgUrl" width="100px" />
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let scrapedProduct">{{ scrapedProduct.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="shop">
+              <th mat-header-cell *matHeaderCellDef>Shop</th>
+              <td mat-cell *matCellDef="let scrapedProduct">
+                <img
+                  *ngIf="scrapedProduct.shop == 'Mytek'"
+                  src="https://static.mytek.tn/static/version1645794938/frontend/Sm/topmart/fr_FR/images/logo.svg"
+                  width="100px"
+                />
+                <img
+                  *ngIf="scrapedProduct.shop == 'Spacenet'"
+                  src="https://spacenet.tn/img/spacenet-b2c-logo-1602842200.jpg"
+                  width="100px"
+                />
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef>Price</th>
+              <td mat-cell *matCellDef="let scrapedProduct">{{ scrapedProduct.price }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Last date</th>
+              <td mat-cell *matCellDef="let scrapedProduct">{{ scrapedProduct.date }}</td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let scrapedProduct; let i = index">
+                <a mat-raised-button [href]="scrapedProduct.url"> show </a>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+        <!-- row.// -->
+      </div>
+      <!-- card-body.// -->
+    </article>
+  </div>
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

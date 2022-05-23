@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-content>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <h2>Signup</h2>
+        <mat-form-field>
+            <mat-label>Enter your Name</mat-label>
+            <input matInput placeholder="pat" [formControl]="name" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+              <mat-label>Enter your password</mat-label>
+              <input type="password" matInput placeholder="******************" [formControl]="password" required>
+              <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>  
+
+        <button mat-raised-button color="accent"  (click)="onSignup()">Signup</button>
+
+      </form>
+    </mat-card-content>
+</mat-card>

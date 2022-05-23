@@ -1,0 +1,12 @@
+<mat-card class="proudct-card">
+    <mat-card-header>
+    <mat-card-title>{{productData.name}}</mat-card-title>
+      <mat-card-subtitle>{{productData.category}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="productData.imgUrl">
+    <mat-card-content>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="onClick(productData.id)">Voir</button>
+    </mat-card-actions>
+</mat-card>

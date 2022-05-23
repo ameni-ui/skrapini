@@ -1,0 +1,7 @@
+.proudct-card {
+  max-width: 300px;
+  margin: 10px; 
+}
+mat-card-actions {
+  text-align: center;
+}

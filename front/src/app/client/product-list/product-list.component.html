@@ -1,0 +1,9 @@
+<article class="card mt-5">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-4" *ngFor="let product of products">
+        <app-product-card [productData]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+</article>

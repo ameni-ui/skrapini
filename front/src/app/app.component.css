@@ -1,0 +1,37 @@
+header {
+    text-align: center;
+    background-color: #EEE;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+footer {
+    background-color: #363632;
+    color: #ffffff;
+    padding: 10px;
+    position:fixed;
+    bottom:0;
+    width:100%;
+  }
+
+  
+a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+  
+a.active {
+  color: #666;
+  text-decoration: underline;
+}
+
+.logo
+{
+  font-size: 52px;
+  font-weight: bolder;
+  color: #ff4081;
+}
